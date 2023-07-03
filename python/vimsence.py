@@ -8,6 +8,8 @@ import rpc
 import utils as u
 import vim
 
+from subprocess import run
+
 logger = logging.getLogger(__name__)
 
 # Get small text and images from vim config
@@ -256,8 +258,14 @@ def get_extension():
 
 
 def get_directory():
-    '''Get current directory
+    '''Get name of git repo if it exists, otherwise gets name of
+    current directory
     :returns: string
     '''
 
-    return re.split(r'[\\/]', vim.eval('getcwd()'))[-1]
+    process = run(['git', 'rev-parse', '--show-toplevel'], capture_output=True)
+    if process.returncode == 0:
+        repo = process.stdout.decode('ascii').strip()
+        return re.split(r'[\\/]', repo)[-1]
+    else:
+        return re.split(r'[\\/]', vim.eval('getcwd()'))[-1]
