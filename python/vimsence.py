@@ -128,6 +128,10 @@ def update_presence():
     if vim.eval('exists("g:vimsence_editing_large_text")') == '1':
         editing_text = vim.eval('g:vimsence_editing_large_text')
 
+    # TODO: add if statement to return username and repo, like: "Project: hi-im-vika/vimsence"
+    # if "git rev-parse --is-inside-work-tree" == true:
+    #   editing_state = 'Project: {}'
+    # (everything else ...)
     editing_state = 'Workspace: {}'
     if vim.eval('exists("g:vimsence_editing_state")') == '1':
         editing_state = vim.eval('g:vimsence_editing_state')
