@@ -23,7 +23,7 @@ You need to have Vim/NeoVim with Python3 support
 #### [Vundle](https://github.com/VundleVim/Vundle.vim) or similar
 1. Add `Plugin 'vimsence/vimsence'` to your vimrc file.
 2. Reload your vimrc or restart
-3. Run `:BundleInstall`
+3. Run `:PluginInstall`
 
 #### [NeoBundle](https://github.com/Shougo/neobundle.vim)
 1. Add `NeoBundle 'vimsence/vimsence'` to your vimrc file.
